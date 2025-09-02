@@ -7,7 +7,9 @@ import { limiter } from "./middleware/rateLimiting";
 import logger from "./utilities/logger";
 import shortenRouter from "./routes/shorten";
 import redirectRouter from "./routes/redirect";
+import healthRouter from "./routes/health";
 import dbConnection from "./repository/connection";
+import { setupSwagger } from "./static/swagger";
 
 const app = express();
 
@@ -19,8 +21,11 @@ app.use(limiter);
 
 dbConnection();
 
-app.use("/", shortenRouter);
-app.use("/", redirectRouter);
+setupSwagger(app);
+
+app.use("/shorten", shortenRouter);
+app.use("/redirect", redirectRouter);
+app.use("/health", healthRouter);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   res.status(404).json({ status: "error", message: "Route not found" });

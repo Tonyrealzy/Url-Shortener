@@ -96,7 +96,7 @@ Got it — here’s the section already structured as a full **`README.md` file*
   "status": "success",
   "message": "Link shortened successfully",
   "data": {
-    "shortUrl": "https://url-shortener-service-7vhn.onrender.com/gik6GHG",
+    "shortUrl": "https://url-shortener-service-7vhn.onrender.com/redirect?code=gik6GHG",
     "longUrl": "https://github.com/Tonyrealzy/Robo-Advisor-React-Frontend/actions/new"
   }
 }
@@ -106,10 +106,10 @@ Got it — here’s the section already structured as a full **`README.md` file*
 
 ### 🔹 Redirect to Original URL
 
-**GET** `/:code`
+**GET** `/redirect?code=${code}`
 
 **Example:**
-[https://url-shortener-service-7vhn.onrender.com/gik6GHG](https://url-shortener-service-7vhn.onrender.com/gik6GHG)
+[https://url-shortener-service-7vhn.onrender.com/gik6GHG](https://url-shortener-service-7vhn.onrender.com/redirect?code=gik6GHG)
 
 ➡️ Redirects to the original long URL.
 
@@ -136,7 +136,7 @@ src/
  ├── index.ts          # App entry point
  ├── routes/           # Express route handlers
  │    ├── shorten.ts   # POST /shorten
- │    └── redirect.ts  # GET /:code
+ │    └── redirect.ts  # GET /redirect?code=${code}
  ├── repository/       # DB access (Prisma)
  ├── utilities/        # Helpers (config, key generation, etc.)
  └── generated/        # Prisma client
@@ -171,9 +171,4 @@ npm start
 
 This project is licensed under the **MIT License**.
 
-```
-
-✅ Now you can copy this whole thing into your repo as `README.md` directly.  
-
-Do you also want me to add a **local development setup guide** (clone → install → run locally with Postgres + Redis) before the API usage?
 ```
