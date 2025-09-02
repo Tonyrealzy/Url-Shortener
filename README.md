@@ -71,17 +71,27 @@ docker build -t url-shortener .
 docker run -p 4000:4000 url-shortener
 
 
+Got it — here’s the section already structured as a full **`README.md` file** so you can just copy–paste into your repo:
+
+````markdown
+# URL Shortener Service
+
 ## 🌐 API Usage
-🔹 Shorten a URL
 
-POST /shorten
+### 🔹 Shorten a URL
 
-Request Body:
+**POST** `/shorten`
+
+**Request Body**
+```json
 {
   "link": "https://github.com/Tonyrealzy/Robo-Advisor-React-Frontend"
 }
+````
 
-Response:
+**Response**
+
+```json
 {
   "status": "success",
   "message": "Link shortened successfully",
@@ -90,29 +100,38 @@ Response:
     "longUrl": "https://github.com/Tonyrealzy/Robo-Advisor-React-Frontend/actions/new"
   }
 }
+```
 
-🔹 Redirect to Original URL
+---
 
-GET /:code
+### 🔹 Redirect to Original URL
 
-Example:
-https://url-shortener-service-7vhn.onrender.com/gik6GHG
+**GET** `/:code`
 
-→ redirects to the original long URL.
+**Example:**
+[https://url-shortener-service-7vhn.onrender.com/gik6GHG](https://url-shortener-service-7vhn.onrender.com/gik6GHG)
 
+➡️ Redirects to the original long URL.
+
+---
 
 ## 🧪 Testing
 
-You can test endpoints with Postman or curl.
+You can test endpoints with **Postman** or **curl**.
 
-Example:
+**Example**
 
+```bash
 curl -X POST https://url-shortener-service-7vhn.onrender.com/shorten \
   -H "Content-Type: application/json" \
   -d '{"link":"https://example.com"}'
+```
 
+---
 
 ## 📁 Project Structure
+
+```
 src/
  ├── index.ts          # App entry point
  ├── routes/           # Express route handlers
@@ -123,26 +142,38 @@ src/
  └── generated/        # Prisma client
 prisma/
  └── schema.prisma     # Prisma schema definition
+```
 
+---
 
 ## 🚀 Deployment on Render
 
-Database: PostgreSQL (Render managed instance)
+* **Database**: PostgreSQL (Render managed instance)
+* **Cache**: Upstash Redis
+* **Service**: Docker-based Render Web Service
+* **Port**: Uses `$PORT` provided by Render (fallback to `4000` locally)
 
-Cache: Upstash Redis
+**Build command**
 
-Service: Docker-based Render Web Service
-
-Port: Use $PORT provided by Render (fallback to 4000 locally)
-
-
-#### Build command:
+```bash
 npm run build && npx prisma generate
+```
 
-#### Start command:
+**Start command**
+
+```bash
 npm start
+```
 
+---
 
 ## 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
+
+```
+
+✅ Now you can copy this whole thing into your repo as `README.md` directly.  
+
+Do you also want me to add a **local development setup guide** (clone → install → run locally with Postgres + Redis) before the API usage?
+```
