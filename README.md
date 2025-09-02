@@ -3,7 +3,15 @@
 A simple, scalable **URL Shortener** built with **TypeScript, Express, PostgreSQL (via Prisma), and Redis**.  
 The service provides an API to shorten long URLs into unique short codes and redirect users when they visit the shortened link.
 
-🚀 Live Demo: [url-shortener-service-7vhn.onrender.com](https://url-shortener-service-7vhn.onrender.com)
+## 🚀 Live Demo  
+
+The service is deployed on Render and available here:  
+👉 [url-shortener-service-7vhn.onrender.com](https://url-shortener-service-7vhn.onrender.com)  
+
+## 📖 API Documentation (Swagger)  
+
+Interactive API docs are available here:  
+👉 [Swagger UI](https://url-shortener-service-7vhn.onrender.com/api/swagger)  
 
 
 ---
