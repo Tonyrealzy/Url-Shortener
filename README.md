@@ -42,18 +42,28 @@ Interactive API docs are available here:
 
 ---
 
+Here’s your section formatted cleanly in **Markdown** for a `README.md`:
 
+````markdown
 ## 📦 Installation & Setup
 
 ### 1. Clone the repository
+```bash
 git clone https://github.com/Tonyrealzy/Url-Shortener.git
 cd Url-Shortener
+````
 
 ### 2. Install dependencies
+
+```bash
 npm install
+```
 
 ### 3. Configure environment variables
-Create a .env file in the project root:
+
+Create a `.env` file in the project root:
+
+```env
 DATABASE_URL=postgresql://<user>:<password>@<host>/<db>?schema=public
 REDIS_URL=<your-upstash-redis-url>
 REDIS_TOKEN=<your-upstash-redis-token>
@@ -61,16 +71,45 @@ NODE_ENV=development
 PORT=4000
 LIMIT_TIME=1
 LIMIT_REQUEST=50
+```
 
 ### 4. Run database migrations
+
+```bash
 npx prisma migrate deploy
+```
 
 ### 5. Generate Prisma client
+
+```bash
 npx prisma generate
+```
 
 ### 6. Start the server
-npm run dev   # development
-npm run build && npm start   # production
+
+Development:
+
+```bash
+npm run dev
+```
+
+Production:
+
+```bash
+npm run build && npm start
+```
+
+---
+
+## 🐳 Docker Setup
+
+### Build and run locally:
+
+```bash
+docker build -t url-shortener .
+docker run -p 4000:4000 url-shortener
+```
+
 
 ## 🐳 Docker Setup
 
