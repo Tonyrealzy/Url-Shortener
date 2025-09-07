@@ -10,6 +10,7 @@ import redirectRouter from "./routes/redirect";
 import healthRouter from "./routes/health";
 import dbConnection from "./repository/connection";
 import { setupSwagger } from "./static/swagger";
+import { cronJob } from "./utilities/cronJob";
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(limiter);
 
 dbConnection();
+cronJob();
 
 setupSwagger(app);
 
