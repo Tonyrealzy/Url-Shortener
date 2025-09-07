@@ -11,4 +11,7 @@ export const envConfig = {
   baseUrl: process.env.BASE_URL || "",
   redisUrl: process.env.REDIS_URL,
   redisToken: process.env.REDIS_TOKEN,
+  supabaseUrl: process.env.SUPABASE_URL!,
+  supabaseKey: process.env.SUPABASE_ANON_KEY!,
+  supabaseServiceKey: process.env.SUPABASE_SERVICE_KEY!,
 };

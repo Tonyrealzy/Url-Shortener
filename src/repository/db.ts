@@ -1,22 +1,14 @@
 import { PrismaClient } from "@prisma/client";
 import { envConfig } from "../utilities/config";
 
-declare global {
-  namespace NodeJS {
-    interface Global {}
-  }
-}
+const globalForPrisma = global as unknown as { prisma?: PrismaClient };
 
-interface CustomNodeJsGlobal extends NodeJS.Global {
-  prisma: PrismaClient;
-}
+export const db =
+  globalForPrisma.prisma ??
+  new PrismaClient({
+    log: ["warn", "error", "query"],
+  });
 
-declare const global: CustomNodeJsGlobal;
-
-const db = global.prisma || new PrismaClient();
-
-if (envConfig.environment === "development") {
-  global.prisma = db;
-}
+if (envConfig.environment !== "production") globalForPrisma.prisma = db;
 
 export default db;
